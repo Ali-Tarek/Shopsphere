@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
-import { assets, type Product } from "../assets/assets";
+// import { assets, type Product } from "../assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import type { CartItems } from "../context/ShopContext";
 import axios from "axios";
@@ -32,7 +32,7 @@ const PlaceOrder: React.FC = () => {
     setCartItems: React.Dispatch<React.SetStateAction<CartItems>>;
     getCartAmount: () => number;
     delivery_fee: number;
-    products: Product[];
+    products: any[];
   };
   type FormData = {
     firstName: string;
