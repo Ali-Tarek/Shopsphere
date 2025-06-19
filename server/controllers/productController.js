@@ -49,7 +49,7 @@ const addProduct = async (req, res) => {
     res.json({ success: true, message: "Product added successfully" });
   } catch (error) {
     console.log(error);
-    res.status({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
@@ -59,7 +59,7 @@ const listProducts = async (req, res) => {
     res.json({ success: true, products });
   } catch (error) {
     console.log(error);
-    res.status({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
@@ -69,19 +69,30 @@ const removeProduct = async (req, res) => {
     res.json({ success: true, message: "Product removed successfully" });
   } catch (error) {
     console.log(error);
-    res.status({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
 const singleProduct = async (req, res) => {
   try {
-    const productId = req.body;
+    const productId = req.query.id || req.body.id;
+    if (!productId) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Product ID is required" });
+    }
+
     const product = await productModel.findById(productId);
+    if (!product) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found" });
+    }
 
     res.json({ success: true, product });
   } catch (error) {
     console.log(error);
-    res.status({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
