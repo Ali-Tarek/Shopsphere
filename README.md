@@ -58,7 +58,7 @@ Shopsphere/
   - Multer (file uploads)
 
 - **Deployment:**
-  - Vercel (configuration files included)
+  - Vercel
 
 ---
 
@@ -66,9 +66,9 @@ Shopsphere/
 
 ### Prerequisites
 
-- Node.js (v16+ recommended)
+- Node.js
 - npm or yarn
-- MongoDB instance (local or cloud)
+- MongoDB instance
 
 ### Clone the Repository
 
@@ -107,7 +107,7 @@ npm run dev
 ## Usage
 
 - **Client**: Visit `http://localhost:5173` (or as shown in terminal) to browse and shop.
-- **Admin**: Visit `http://localhost:5173` (or as shown in terminal) for admin dashboard (login required).
+- **Admin**: Visit `http://localhost:5173` (or as shown in terminal) for the admin dashboard (login required).
 - **API**: Server runs on `http://localhost:5000` by default.
 
 ---
